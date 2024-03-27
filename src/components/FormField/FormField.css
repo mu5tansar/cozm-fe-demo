@@ -1,0 +1,41 @@
+.formfield {
+  width: 100%;
+  max-width: 21rem;
+  margin-bottom: 2.5rem;
+}
+.formfield_label {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.formfield_label:after {
+  content: "*";
+  color: var(--primary-color);
+}
+.formfield_inputgroup {
+  position: relative;
+  width: 100%;
+}
+.formfield_input {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #cecece;
+  padding: 10px 60px 10px 0;
+  font-size: 1.1rem;
+  width: 100%;
+  max-width: 17.2rem;
+}
+.formfield_action {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+.formfield_icon {
+  cursor: pointer;
+  margin-left: 3px;
+}
+.formfield_error {
+  font-size: 0.875rem;
+  color: #ff0033;
+  position: absolute;
+  margin-top: 4px;
+}

@@ -1,0 +1,22 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.modal_content {
+  max-width: 57rem;
+  width: 100%;
+  height: 38.25rem;
+  background-color: #ffff;
+  border-radius: 20px;
+  padding: 2.25rem 4.375rem;
+}
+.modal_header {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}

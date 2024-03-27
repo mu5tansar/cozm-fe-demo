@@ -1,0 +1,17 @@
+.button {
+  outline: none;
+  border: 2px solid var(--primary-color);
+  max-width: 10.8rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background-color: var(--primary-color);
+  color: #ffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.button_outlined {
+  background-color: #ffff;
+  color: var(--primary-color);
+}

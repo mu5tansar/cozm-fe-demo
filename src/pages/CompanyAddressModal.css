@@ -1,0 +1,15 @@
+.form_action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 5rem;
+}
+.form_content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.button_close {
+  margin-right: 1.25rem;
+}
