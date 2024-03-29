@@ -1,11 +1,14 @@
 import React from "react";
+import classNames from "clsx";
 import "./Modal.css";
-export default function Modal({ children, title }) {
+export default function Modal({ open, children, title, className }) {
   return (
-    <div className="modal">
-      <div className="modal_content">
-        <header className="modal_header">{title}</header>
-        {children}
+    <div hidden={!open}>
+      <div className="modal">
+        <div className={classNames("modal_content", className)}>
+          <header className="modal_header">{title}</header>
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ export default function FormField({ label, name, control, onClear, ...props }) {
     control,
     rules: { required: true },
   });
-  console.log({ error, field });
   return (
     <div className="formfield">
       {label && <div className="formfield_label">{label}</div>}
