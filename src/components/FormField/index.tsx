@@ -1,9 +1,23 @@
-import React from "react";
-import { ReactComponent as ClearIcon } from "../../assets/svg/clear.svg";
-import { ReactComponent as HelpIcon } from "../../assets/svg/help.svg";
+import React, { ComponentPropsWithoutRef, ReactElement } from "react";
+import ClearIcon from "../../assets/svg/clear";
+import HelpIcon from "../../assets/svg/help";
 import "./FormField.css";
-import { useController } from "react-hook-form";
-export default function FormField({ label, name, control, onClear, ...props }) {
+import { Control, useController } from "react-hook-form";
+
+interface FormFieldProps extends ComponentPropsWithoutRef<"input"> {
+  label: string;
+  name: string;
+  control: Control;
+  onClear: (name: string) => void;
+}
+
+export default function FormField({
+  label,
+  name,
+  control,
+  onClear,
+  ...props
+}: FormFieldProps): ReactElement {
   const {
     field,
     fieldState: { error },
@@ -16,16 +30,11 @@ export default function FormField({ label, name, control, onClear, ...props }) {
     <div className="formfield">
       {label && <div className="formfield_label">{label}</div>}
       <div className="formfield_inputgroup">
-        <input
-          className="formfield_input"
-          name={name}
-          {...field}
-          {...props}
-        ></input>
+        <input className="formfield_input" {...field} {...props}></input>
         <div className="formfield_action">
           <ClearIcon
             className="formfield_icon"
-            onClick={onClear ? () => onClear(name) : null}
+            onClick={onClear ? () => onClear(name) : undefined}
           />
           <HelpIcon className="formfield_icon" />
         </div>

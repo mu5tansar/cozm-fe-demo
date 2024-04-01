@@ -2,7 +2,19 @@ import React from "react";
 import Modal from "../Modal";
 import Button from "../Button";
 import "./AddressSelectModal.css";
-export default function AddressSelectModal({ open, onClose, onSelect, data }) {
+import { CompanyAddress } from "../../service/address.service";
+interface AddressSelectModalProps {
+  open: boolean;
+  onClose: () => void;
+  onSelect: (address: CompanyAddress) => void;
+  data: CompanyAddress[] | null;
+}
+export default function AddressSelectModal({
+  open,
+  onClose,
+  onSelect,
+  data,
+}: AddressSelectModalProps): React.ReactElement {
   return (
     <Modal
       open={open}

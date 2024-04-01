@@ -4,16 +4,24 @@ import FormField from "../components/FormField";
 import { useForm } from "react-hook-form";
 import "./CompanyAddressModal.css";
 import Button from "../components/Button";
-import { addressService } from "../service/address.service";
+import { CompanyAddress, addressService } from "../service/address.service";
 import AddressSelectModal from "../components/AddressSelectModal";
 const MDOAL_TITLE = "Destination Company Address";
 export default function CompanyAddressModal() {
-  const [searchAddressResult, setSearchAddressResult] = useState(null);
+  const [searchAddressResult, setSearchAddressResult] = useState<
+    CompanyAddress[] | null
+  >(null);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
   const { handleSubmit, watch, setValue, control, reset } = useForm();
   const nameValue = watch("name");
-  const searchAddressByCompany = async ({ name, country }) => {
+  const searchAddressByCompany = async ({
+    name,
+    country,
+  }: {
+    name: string;
+    country: string;
+  }) => {
     const { data } = await addressService.getAddressByCompany({
       name,
       country,
@@ -31,7 +39,7 @@ export default function CompanyAddressModal() {
       return () => clearTimeout(debounceSearch);
     }
   }, [nameValue]);
-  const onAddressSelect = (address) => {
+  const onAddressSelect = (address: CompanyAddress) => {
     setIsAddressModalOpen(false);
     const { city, postal_code, street_name, house_number, country } = address;
     setValue("city", city);
@@ -40,11 +48,11 @@ export default function CompanyAddressModal() {
     setValue("street_name", street_name);
     setValue("country", country);
   };
-  const onSubmit = (data) => {
+  const onSubmit = (data: unknown) => {
     console.log({ data });
     reset();
   };
-  const handleClearValue = (propertyName) => setValue(propertyName, "");
+  const handleClearValue = (propertyName: string) => setValue(propertyName, "");
 
   return (
     <div>

@@ -1,7 +1,18 @@
-import React from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
 import classNames from "clsx";
 import "./Modal.css";
-export default function Modal({ open, children, title, className }) {
+interface ModalProps extends PropsWithChildren {
+  open: boolean;
+  title?: string;
+  className?: string;
+}
+
+export default function Modal({
+  open,
+  children,
+  title,
+  className,
+}: ModalProps): ReactElement {
   return (
     <div hidden={!open}>
       <div className="modal">
